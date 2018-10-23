@@ -1,0 +1,73 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: f58f0bbe02c91fd8ff57a5071e3da8196eee15e7e3b6bf1b2d2f0dc31bcde561
+
+name:           bank-example
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/piotrMocz/bank-example#readme>
+homepage:       https://github.com/piotrMocz/bank-example#readme
+bug-reports:    https://github.com/piotrMocz/bank-example/issues
+author:         Piotr Moczurad
+copyright:      2018 Piotr Moczurad
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/piotrMocz/bank-example
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , containers
+    , lens
+    , mtl
+    , text
+  exposed-modules:
+      Bank
+      Bank2
+      Bank3
+      Bank4
+      Bank5
+  other-modules:
+      Paths_bank_example
+  default-language: Haskell2010
+
+executable bank-example-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      bank-example
+    , base >=4.7 && <5
+  other-modules:
+      Paths_bank_example
+  default-language: Haskell2010
+
+test-suite bank-example-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , bank-example
+    , base >=4.7 && <5
+    , hspec
+    , lens
+    , mtl
+  other-modules:
+      Paths_bank_example
+  default-language: Haskell2010

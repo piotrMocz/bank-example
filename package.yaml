@@ -1,0 +1,50 @@
+name:                bank-example
+version:             0.1.0.0
+github:              "piotrMocz/bank-example"
+license:             BSD3
+author:              "Piotr Moczurad"
+copyright:           "2018 Piotr Moczurad"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+description:         Please see the README on GitHub at <https://github.com/piotrMocz/bank-example#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+  - containers
+  - lens
+  - mtl
+  - text
+  - bytestring
+
+executables:
+  bank-example-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bank-example
+
+tests:
+  bank-example-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bank-example
+    - hspec
+    - QuickCheck
+    - lens
+    - mtl
